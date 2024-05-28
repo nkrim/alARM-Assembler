@@ -30,21 +30,21 @@ Flag    Description
 ======  ===========
 
 Feature Additions
-==========
+=================
 - 11/30/22 5:00pm - added ``CLC`` psuedo-instruction for clearing the carry flag (gets replaced with ``AND R0, R0, R0``).
 
 Bug Fixes
-==========
+=========
 - 11/17/22 9:30pm - fixed a bug that was causing every operand token to display as mnemonic instead in encoder errors.
 - 11/19/22 8:30pm - fixed ``CMP`` encoding to use Rn and Rm spaces instead of Rd and Rn.
 - 11/20/22 6:45pm - fixed ``MOV Flags, Rn`` encoding to use Rn instead of Rd.
 - 11/29/22 4:00pm - fixed negative immediate parsing for in strict mode.
 
 ISA
-==========
+===
 
 Registers and Memory
-----------
+--------------------
 
 .. list-table::
    :widths: 25 50
@@ -59,7 +59,7 @@ Registers and Memory
      - Data address 0xFFFF reserved for printing a value on the front panel display
 
 Status Register
-----------
+---------------
 This 4-bit register stores the flags from the previous ALU operation. Their abbreviations, bit positions (from ``[3:0]``) and their meaning are as follows: 
 
 .. list-table::
@@ -78,7 +78,7 @@ This 4-bit register stores the flags from the previous ALU operation. Their abbr
      - o **V** erflow
      
 Non-ALU Operations
-----------
+------------------
 
 .. list-table::
    :widths: 25 25 50
@@ -137,7 +137,7 @@ Non-ALU Operations
      - Branch to program label when the Z flag of status register is **cleared**
      
 ALU Operations
-----------
+--------------
 
 .. list-table::
    :widths: 25 25 50
@@ -196,7 +196,7 @@ ALU Operations
      - ``Rn - Rm`` (only sets the flag, doens't write the result)
      
 Psuedo-Instructions and Aliases
-----------
+-------------------------------
 
 .. list-table::
    :widths: 25 25 50
@@ -210,12 +210,12 @@ Psuedo-Instructions and Aliases
      - "Clear Carry", used to avoid the implicit carry-in to the ALU for ADD and SUB operations
 
 Notes
----------
+-----
 - All operations are signed operations, unless otherwise specified.
 - To load or store the ALU flags with the ``MOV`` instruction, you can reference ``Flags`` explicitly as an operand. For example, use ``MOV R0, Flags`` to load ``Flags`` into ``R0`` and use ``MOV Flags, R0`` to store ``R0`` into the ``Flags``. 
 
 Tests
-==========
+=====
 Includes five test files: 
 
 - ``testinsts.s`` which includes every instruction in every format in order to ensure proper encoding.
@@ -226,7 +226,7 @@ Includes five test files:
 - ``teststress.s`` which has 65536 instructions, enough to fill alARM instruction memory, so it is good for timing performance.
 
 Examples
-==========
+========
 
 *The instructions shown below are assembled from larger files, though they are presented here alone with their listing/error output merely for examples. However, interactive assembling in the terminal is a planned feature.*
 
