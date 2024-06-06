@@ -1,5 +1,5 @@
 alARM-Assembler
-###########
+###############
 An assembler for the alARM instruction set (for UC Davis ECS 154A, Fall '22)
 
 alARM is a 16-bit ARM-like instruction set with the goal of building a working CPU in the digital logic simulation Logisim-Evolution. Because the instruction memory ROM can only take in hexadecimal machine code, this assembler was created to expedite programming for and testing of the alARM CPU.
